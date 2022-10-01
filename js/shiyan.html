@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            width: 100px;
+            height: 20px;
+            /* float: left; */
+        }
+        div{
+            width: 100px;
+            height: 20px;
+            background-color: blueviolet;
+            /* float: left; */
+            display: none;
+        }
+    </style>
+     
+
+</head>
+<body>
+    <form id="myform">
+    用户名：<input type="text" id="t1" value="请输入用户名">
+    <br>
+    密码：<input type="text" id="t2" value="请输入密码">
+    <br>
+    确认密码：<input type="text" id="t3" value="请确认">
+    <br>
+    
+    E-mail：<input type="text" id="t4" value="请输入邮件地址">
+    <br>
+    出生日期：<select id="year"></select>年
+    <select id="month"></select>月
+    <select id="day"></select>日
+    <br>
+    <input type="submit" value="登陆">
+</form> 
+
+  <script> 
+  function $ (ElementID){
+       return document.getElementById(ElementID);
+   }
+     window.onload=function (){
+         var formObj=$("myform");
+         formObj.onsubmit=checkAll;
+         year();
+         month();
+         day();
+        var name=$("t1");
+        var pass=$("t2");
+        var rpass=$("t3");
+        var email=$("t4");
+        name.onfocus=empty;
+        pass.onfocus=empty;
+        rpass.onfocus=empty;
+        email.onfocus=empty;
+     }
+    function empty(){
+        if(this.value==this.defaultValue){
+            this.value="";
+        }
+    }
+
+     function year(){
+         var yearObj=$("year");
+         var year=new Date();
+           var newYear=year.getFullYear();
+           for(var i=1900;i<=newYear;i++){
+                yearObj.options[i-1900]=new Option(i);
+           }
+     }
+     function month(){
+         var monthObj=$("month");
+         for(var i=0;i<12;i++){
+             monthObj.options[i]=new Option(i+1);
+         }
+     }
+     function day(){
+         var dayObj=$("day");
+         for(var i=0;i<31;i++){
+            dayObj.options[i]=new Option(i+1);
+         }
+     }
+
+
+
+     function checkAll(){
+        var uesrObj=$("t1");
+        var strName=uesrObj.value;
+        var defaultName=uesrObj.defaultValue;//获取默认值
+        if(strName==defaultName){
+            alert("用户名为默认值，请重新输入");
+            uesrObj.focus();//自动获取焦点
+            return false;
+        }
+        if(strName.length==0){
+            alert("用户名不能为空");
+            uesrObj.focus();
+            return false;
+        }
+        if(strName.length<4||strName.length>16){
+            alert("用户名的长度应在4~16之间");
+            uesrObj.select();//制动获取选中对象
+            return false;
+        }
+
+       var passObj=$("t2");
+      var strPass=passObj.value;
+       if(strPass==0){
+        alert("密码不能为空");
+        passObj.focus();
+        return false;
+       }
+       if(strPass.length<6||strPass.length>32){
+             alert("为了保证您的安全，密码长度为6位以上32位以下");
+             passObj.select();
+             return false;
+         }
+       var rpassObj=$("t3");
+       var strRpass=rpassObj.value;
+       if(strRpass!=strPass){
+        alert("密码与原密码不一致");
+             rpassObj.select();
+             return false;
+       }
+       var emailObj=$("t4");
+       var strEmail=emailObj.value;
+       if(strEmail.length==0){
+            alert("邮件地址不能为空");
+            emailObj.focus();
+           return false;
+       }
+       if(strEmail.indexOf("@")==-1&&strEmail.indexOf(".")==-1){//检查是否有括号里面的符号 有的话返回 -1
+        alert("邮件地址应同时包含 @ . 两个符号");
+        emailObj.select();
+        return false;
+       }
+
+     }
+ </script>
+
+</body>
+</html>
+
