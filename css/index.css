@@ -9515,58 +9515,7 @@ hr:before {
 }
 
 /* 音乐 */
-/* 注入CSS */
-.music-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-  padding: 30px;
-}
 
-.music-card {
-  background: rgba(255,255,255,0.95);
-  border-radius: 12px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
-}
-
-.music-card:hover {
-  transform: translateY(-5px);
-}
-
-.album-cover {
-  height: 180px;
-  background-size: cover;
-  position: relative;
-  border-radius: 12px 12px 0 0;
-}
-
-.play-btn {
-  width: 40px;
-  height: 40px;
-  background: rgba(255,255,255,0.9);
-  border-radius: 50%;
-  position: absolute;
-  bottom: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.play-btn:hover {
-  transform: translateX(-50%) scale(1.1);
-  background: #fff;
-}
-
-.global-player {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: #fff;
-  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-  padding: 15px;
-}
 .search-dialog {
   position: fixed;
   top: 10%;
