@@ -1,4 +1,4 @@
-<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="[object Object]" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>/* 阅读进度 start */
+/* 阅读进度 start */
 document.addEventListener('pjax:complete', function () {
   window.onscroll = percent;
 });
@@ -3548,5 +3548,4 @@ function toggleWinbox() {
     createWinbox();
   };
 }
-
 /* 美化模块 end */
